@@ -1,0 +1,292 @@
+/* ALGEMEEN --> front-text front text / front-image front image */
+@media screen and (max-width: 1100px) {
+    main .front-image-container .front-text {
+        font-size: 60pt;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    main .front-image-container {
+        height: 400px;
+    }
+
+    main .front-image-container .arrow {
+        width: 38px;
+        bottom: 140px;
+    }
+
+    main .front-image-container .front-text {
+        font-size: 45pt;
+    }
+
+    main .front-text-container {
+        padding: 10px 20px;
+    }
+}
+
+/* HOOFDPAGINA --> FRONT-IMAGE & FRONT-TEXT */
+@media screen and (max-width: 1200px) {
+    .hoofdpagina .background-image {
+        height: 600px;
+    }
+
+    .hoofdpagina .background-image .text .logo {
+        width: 500px;
+    }
+
+    .hoofdpagina .background-image .text .caption {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .hoofdpagina .background-image {
+        height: 550px;
+    }
+
+    .hoofdpagina .background-image .text .logo {
+        width: 450px;
+    }
+
+    .hoofdpagina .background-image .text .caption {
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .hoofdpagina .background-image {
+        height: 500px;
+    }
+
+    .hoofdpagina .background-image .text .logo {
+        width: 350px;
+    }
+
+    .hoofdpagina .background-image .text .caption {
+        font-size: 1.2em;
+    }
+
+    .hoofdpagina .background-image .text a svg {
+        width: 40px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hoofdpagina .background-image .text .logo {
+        width: 300px;
+    }
+
+    .hoofdpagina .background-image .text .caption {
+        font-size: 1.2em;
+    }
+}
+
+/* HOOFDPAGINA --> INFORMATIE OVER SAAB SERVICE RHENEN */
+/* Tablet-view */
+@media screen and (max-width: 767px) {
+    .hoofdpagina .info-container {
+        margin-top: -200px;
+    }
+
+    .hoofdpagina .info-container div .card .card-body .card-titel {
+        font-size: 25pt;
+    }
+
+    .hoofdpagina .info-container div .card .card-body .card-text {
+        font-size: 14pt;
+    }
+
+    .hoofdpagina .info-container div .card .card-body div .btn {
+        font-size: 14pt;
+    }
+}
+
+/* Mobile-view */
+@media screen and (max-width: 500px) {
+    .hoofdpagina .info-container div .card .card-body .card-titel {
+        font-size: 20pt;
+    }
+
+    .hoofdpagina .info-container div .card .card-body .card-text {
+        font-size: 13pt;
+    }
+
+    .hoofdpagina .info-container div .card .card-body div .btn {
+        font-size: 13pt;
+    }
+}
+
+/* HOOFDPAGINA --> REVIEWSBUTTON */
+@media screen and (max-width: 712px) {
+    .hoofdpagina .reviews-container .reviews-sub-container .geef-review-button {
+        display: none;
+    }
+
+    .hoofdpagina .reviews-container .reviews-sub-container .geef-review-button2 {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .hoofdpagina .reviews-container .reviews-sub-container .geef-review-button {
+        font-size: 11pt;
+        margin-right: 2.5%;
+    }
+}
+
+@media screen and (max-width: 393px) {
+    .hoofdpagina .reviews-container .reviews-sub-container .geef-review-button {
+        margin-right: 4%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .hoofdpagina .reviews-container .reviews-sub-container .geef-review-button {
+        font-size: 11pt;
+        margin-right: 4%;
+    }
+}
+
+/* ERRORPAGINA --> Het logo */
+@media screen and (max-width: 590px) {
+    .errorPagina .error-container .ssr-logo {
+        width: 90%;
+    }
+}
+
+/* WERKPLAATS --> Melding: 'Bekijk nu ook in full-screen' */
+@media screen and (max-width: 688px) {
+    .werkplaatsPagina .werkplaats-opmerking {
+        display: none;
+    }
+}
+
+/* OCCASIONS  --> Afbeeldingen */
+@media screen and (max-width: 1199px) {
+    .occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .image-container {
+        height: 18vw;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .image-container {
+        height: 28vw;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .image-container {
+        height: 58vw;
+    }
+}
+
+/* FOOTER */
+@media screen and (max-width: 767px) {
+    footer .col-12 {
+        text-align: center;
+    }
+
+    footer ul {
+        display: inline-block;
+    }
+
+    footer .border-bottom-footer-titles {
+        margin: 7px auto;
+        width: max(20%, 75px);
+    }
+}
+
+/* Carousel --> navigatiepijlen */
+@media screen and (min-width: 450px) {
+    .occasionPagina .carousel-control-prev,
+    .occasionPagina .carousel-control-next {
+        --navigation-arrow-width: 50px;
+        --navigation-arrow-height: 50px;
+        --navigation-arrow-margin: -15%;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .occasionPagina .carousel {
+        width: 50%;
+        margin-left: 11.5%;
+    }
+
+    .occasionPagina .carousel-inner {
+        margin-top: 0;
+    }
+
+    .occasionPagina .carousel-control-prev,
+    .occasionPagina .carousel-control-next {
+        --navigation-arrow-width: 50px;
+        --navigation-arrow-height: 50px;
+        --navigation-arrow-margin: -17%;
+    }
+
+    .occasionPagina .carousel-indicators {
+        top: 1%;
+        margin-left: 120%;
+        width: 45%;
+        height: 100%;
+    }
+
+    .occasionPagina .carousel-indicators li {
+        height: 19%;
+        flex-basis: calc(50% - 1%);
+    }
+
+    /* Lijn verdwijnt tussen titel en carousel */
+    .occasionPagina .lijn-titel-carousel {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 649px) {
+    .occasionPagina .occasion-informatie-container {
+        margin-top: 20%;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .occasionPagina .carousel-control-prev,
+    .occasionPagina .carousel-control-next {
+        --navigation-arrow-width: 60px;
+        --navigation-arrow-height: 60px;
+        --navigation-arrow-margin: -14.5%;
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .occasionPagina .carousel-control-prev,
+    .occasionPagina .carousel-control-next {
+        --navigation-arrow-width: 70px;
+        --navigation-arrow-height: 70px;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    .occasionPagina .carousel-control-prev,
+    .occasionPagina .carousel-control-next {
+        --navigation-arrow-width: 80px;
+        --navigation-arrow-height: 80px;
+    }
+}
+
+@media screen and (min-width: 1450px) {
+    .occasionPagina .carousel-control-prev,
+    .occasionPagina .carousel-control-next {
+        --navigation-arrow-width: 90px;
+        --navigation-arrow-height: 90px;
+        --navigation-arrow-margin: -13%;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .occasionPagina .carousel-control-prev,
+    .occasionPagina .carousel-control-next {
+        --navigation-arrow-margin: -12%;
+    }
+} /* Einde : Carousel --> navigatiepijlen */

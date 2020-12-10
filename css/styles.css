@@ -1,0 +1,1062 @@
+/*
+    LAYOUT:
+        - Variabelen
+        - Algemeen
+        - Nav
+        - Styling individually
+            1. Hoofdpagina
+            |       1.1 Achtergrond
+            |       1.2 Logo, tekst en pijl
+            |       1.3 Drie korte introducties
+            |       1.4 knoppen in korte introducties
+            |       1.5 Google reviews
+            |       |       1.5.1 Titel
+            |       |       1.5.2 Geef-beoordeling-knop
+            |       |       1.5.3 Review
+            |       |       |       1.5.3.1 Profielfoto's beoordelaars
+            |       |       |       1.5.3.2 Naam beoordelaar
+            |       |       |       1.5.3.3 Datum beoordeeld
+            |       |       1.5.4 Tekst onder de google-reviews over verschil algoritme
+            |       |               1.5.4.1 De link 'meer informatie'
+            |       1.6 Melding(modal)
+            |       |       1.6.1 Animaties
+            |       |       1.6.2 Melding-top
+            |       |       1.6.3 Content in melding(modal)
+            2. Werkplaatspagina
+            |       2.1 Inhoud(container)
+            |       2.2 Google streetview
+		    |       |       2.2.1 'Bekijk in fullscreen'-foto
+            3. Occasionspagina
+            |       3.1 Inhoud (container)
+            |       3.2 Inhoud occasions
+            |       3.3 Elk occasion-container(bootstrap grids)
+            |       3.4 Elk occasion
+            |       |       3.4.1 Occasion image container
+            |       |       3.4.2 Occasion image
+            |       |       3.4.3 Occasion contents
+            |       |       |       3.4.3.1 Occasion titel
+            |       |       |       3.4.3.2 Occasion informatie(html-tag: d1)
+            |       |       |       3.4.3.3 Occasion informatie container(html-tag: div)
+            |       |       3.4.4 Occasion 'meer informatie'-knop
+            4. Occasionpagina
+            |       4.1 Titel auto
+            |       4.2 Streep tussen: titel & carousel
+            |       4.3 Carousel
+            |       4.4 Informatie en contact container
+            |       |       4.4.1 Elke rij in informatie
+            |       |       4.4.2 Elke rij met een donkere achtergrond
+            |       |       4.4.3 Hele linker rij
+            |       |       4.4.4 Hele rechter rij
+            |       4.5 Contact container
+            |       |       4.5.1 Contact-list
+            |       |       4.5.2 Lijn tussen: 'Bent u .etc..?' & contactmogelijkheden
+            5. Errorpagina
+            |       5.1 Inhoud(container)
+            |       5.2 Logo
+            |       5.3 Titel
+            |       5.4 Bericht
+            |       5.5 Advies
+            |       5.6 Streep tussen: advies & buttons
+            |       5.7 Buttons row
+            |       |       5.7.1 Button container
+            |       |       5.7.2 Button
+            6. Footer
+            |       6.1 Logo
+            |       6.2 Elke rij vd footer aan de rechterkant op desktop-modus
+            |       6.3 Lijn tussen: Titel en list
+            |       6.4 iconen in 2e rij
+            |       6.5 Elke link in de list
+            |       6.6 Copyright container onderaan de footer
+
+*/
+
+
+/* Variabelen */
+:root {
+    --saab-color: rgb(18, 49, 100);
+    --saab-color2: rgb(63, 97, 153);
+    --text-color: rgb(40, 40, 40);
+    --white-color: rgb(245, 245, 245);
+    --nav-unselected: rgba(255, 255, 255, .75);
+    --nav-unselected-hover: rgb(150, 150, 150);
+    --google-rev-date-color: rgb(150, 150, 150);
+    --google-rev-caption-bottom-color: rgb(130, 130, 130);
+    --footer-copyright-container-color: rgb(30, 64, 117);
+}
+
+/* Algemeen */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--white-color);
+}
+
+::selection {
+    --saab-color: rgba(18, 49, 100, .8);
+    background: var(--saab-color);
+    color: var(--white-color);
+}
+
+::-moz-selection {
+    --saab-color: rgba(18, 49, 100, .8);
+    background: var(--saab-color);
+}
+
+::-moz-focus-inner {
+    border: none;
+}
+
+main .front-image-container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+main .front-image-container .front-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80pt;
+    color: var(--white-color);
+    font-weight: 300;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, .8);
+    width: 100%;
+}
+
+main .front-image-container .arrow {
+    position: absolute;
+    bottom: 155px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .7;
+    border-radius: 25px;
+    transition: opacity 250ms ease-in-out, bottom 250ms ease-in-out;
+}
+
+main .front-image-container .arrow:hover {
+    opacity: 1;
+    bottom: 150px;
+}
+
+main .front-text-container {
+    position: relative;
+    margin-top: -100px;
+    background: var(--white-color);
+    padding: 20px 30px 10px 30px;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .05);
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, .05);
+}
+
+main .front-text-container p {
+    font-size: 13pt;
+    line-height: 27px;
+}
+
+/* Nav */
+.navbar {
+    background: var(--saab-color);
+}
+
+.navbar .navbar-brand .navbar-logo {
+    height: 55px;
+    outline: none;
+    user-select: none;
+}
+
+.navbar .collapse .navbar-nav .active {
+    color: var(--white-color);
+    outline: none;
+    user-select: none;
+}
+
+.navbar .collapse .navbar-nav .non-active {
+    outline: none;
+    color: var(--nav-unselected);
+    transition: color 200ms ease-in-out;
+    user-select: none;
+}
+
+.navbar .collapse .navbar-nav .non-active:hover,
+.navbar .collapse .navbar-nav .non-active:active,
+.navbar .collapse .navbar-nav .non-active:focus {
+    color: var(--nav-unselected-hover);
+}
+
+.navbar .navbar-toggler span {
+    background: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(245, 245, 245)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar .navbar-toggler {
+    outline: none;
+    border-color: var(--white-color);
+    border-width: 2px;
+}
+
+.navbar .nav-item {
+    margin-left: 15px;
+}
+
+/* Styling individually */
+
+/*************************
+1. Hoofdpagina ***********
+/*************************/
+
+/* 1.1 Achtergrond */
+.hoofdpagina .background-image {
+    width: 100%;
+    position: relative;
+    height: 700px;
+    background-image: url("../images/Hoofdpagina/introductie/3.png");
+    background-repeat: repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+/* 1.2 Logo, tekst en pijl */
+.hoofdpagina .background-image .text {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+}
+
+.hoofdpagina .background-image .text .logo {
+    user-select: none;
+    width: 700px;
+}
+
+.hoofdpagina .background-image .text .caption {
+    font-size: 2em;
+    color: var(--white-color);
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 10px rgb(0, 0, 0);
+    margin-top: 30px;
+}
+
+.hoofdpagina .background-image .text .arrow {
+    margin-top: 20px;
+    opacity: .7;
+    border-radius: 25px;
+    transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
+}
+
+.hoofdpagina .background-image .text .arrow:hover {
+    opacity: 1;
+    margin-top: 25px;
+}
+
+/* 1.3 Drie korte introducties */
+.hoofdpagina .info-container {
+    padding: 0 5%;
+    margin-top: -230px;
+}
+
+.hoofdpagina .info-container div .card {
+    height: 300px;
+    color: var(--text-color);
+    background: var(--white-color);
+    border: none;
+    margin-top: 30px;
+    border-radius: 6px;
+    --saab-color: rgba(18, 49, 100, .5);
+    box-shadow: 0 0 20px var(--saab-color);
+}
+
+.hoofdpagina .info-container div .card hr {
+    width: 20%;
+    margin: 15px 40%;
+    background: var(--saab-color);
+}
+
+.hoofdpagina .info-container div .card .card-titel {
+    font-size: 2.2em;
+    font-weight: 400;
+}
+
+.hoofdpagina .info-container div .card .card-text {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 1.3em;
+}
+
+/* 1.4 knoppen in korte introducties */
+.hoofdpagina .info-container div .card .button-container {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hoofdpagina .info-container div .card .button-container .btn {
+    position: relative;
+    --saab-color: rgb(18, 49, 100);
+    color: var(--saab-color);
+    border: 2px solid var(--saab-color);
+    box-shadow: 0 0 10px rgba(18, 49, 100, .3);
+    font-size: 14pt;
+    outline: none;
+    border-radius: 22px;
+    padding: 7px 15px;
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+.hoofdpagina .info-container div .card .button-container .btn:hover,
+.hoofdpagina .info-container div .card .button-container .btn:active,
+.hoofdpagina .info-container div .card .button-container .btn:focus {
+    background-color: var(--saab-color);
+    color: var(--white-color);
+}
+
+/* 1.5 Google reviews */
+.hoofdpagina .reviews-container {
+    margin-top: 70px;
+}
+
+.hoofdpagina .reviews-container .reviews-sub-container {
+    width: 90%;
+    margin: 0 5%;
+    border-top: 1px solid rgba(18, 49, 100, .2);
+    padding-top: 40px;
+}
+
+/* 1.5.1 Titel */
+.hoofdpagina .reviews-container .reviews-sub-container .master-title {
+    font-size: 30pt;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* 1.5.2 geef beoordeling-knop */
+.hoofdpagina .reviews-container .reviews-sub-container .geef-review-button,
+.hoofdpagina .reviews-container .reviews-sub-container .geef-review-button2 {
+    position: absolute;
+    border: 2px solid var(--saab-color);
+    border-radius: 3px;
+    padding: 7px 10px;
+    color: var(--saab-color);
+    font-size: 13pt;
+    text-decoration: none;
+    right: 6.2%;
+    margin-top: -45px;
+    outline: none;
+    user-select: none;
+    transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
+}
+
+.hoofdpagina .reviews-container .reviews-sub-container .geef-review-button:hover,
+.hoofdpagina .reviews-container .reviews-sub-container .geef-review-button:focus,
+.hoofdpagina .reviews-container .reviews-sub-container .geef-review-button2:hover,
+.hoofdpagina .reviews-container .reviews-sub-container .geef-review-button2:focus {
+    background-color: var(--saab-color);
+    color: var(--white-color);
+}
+
+.hoofdpagina .reviews-container .reviews-sub-container .geef-review-button2 {
+    right: unset;
+    width: 90%;
+    margin-top: 10px;
+    display: none;
+}
+
+.hoofdpagina .reviews-container .gemiddelde-rating-container {
+    margin: 20px 0 0 0;
+}
+
+.hoofdpagina .reviews-container .gemiddelde-rating-container .top,
+.hoofdpagina .reviews-container .gemiddelde-rating-container .body {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.hoofdpagina .reviews-container .gemiddelde-rating-container .body {
+    margin-top: 5px;
+}
+
+.hoofdpagina .reviews-container .gemiddelde-rating-container .top .google-logo {
+    width: 8%;
+    min-width: 100px;
+    margin: 0 1% 0 0;
+}
+
+.hoofdpagina .reviews-container .gemiddelde-rating-container .top .google-logo img {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+.hoofdpagina .reviews-container .gemiddelde-rating-container .top .gemiddelde-rating-text p {
+    padding: 0;
+    margin: 6px 0 0 0;
+    font-size: max(120%, 20px);
+    font-weight: 400;
+}
+
+.hoofdpagina .gemiddelde-rating-container .body p {
+    margin: 0 10px 0 0;
+    font-size: max(120%, 20px);
+}
+
+.hoofdpagina .gemiddelde-rating-container .body .aantal-beoordelingen {
+    font-size: 12pt;
+    margin: 5px 0 0 5px;
+    color: rgb(150, 150, 150);
+}
+
+.hoofdpagina .gemiddelde-rating-container .body svg {
+    margin: 2.5px 2px 0 0;
+}
+
+/* 1.5.3 Review */
+.hoofdpagina  .review {
+    margin: 25px 0 0 0;
+    padding: 20px 20px 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .05);
+}
+
+.hoofdpagina .review p {
+    padding: 0;
+    margin: 10px 0;
+}
+
+.hoofdpagina  .review-top {
+    margin: 0 0 8px 0;
+}
+
+/* 1.5.3.1 Profielfoto's beoordelaars */
+.hoofdpagina  .review-top .review-profielfotos {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    background-position: center;
+    background-size: cover;
+}
+
+.hoofdpagina .naam-en-sterren-container {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1.5.3.2 Naam beoordelaar */
+.hoofdpagina .naam-en-sterren-container a {
+    outline: none;
+    text-decoration: underline;
+    text-decoration-color: var(--white-color);
+    color: #000;
+    font-size: 13.5pt;
+    transition: 200ms color linear, 200ms text-decoration-color linear;
+    margin-left: -15px;
+}
+
+.hoofdpagina .naam-en-sterren-container a:hover {
+    color: var(--saab-color);
+    text-decoration-color: var(--saab-color);
+}
+
+.hoofdpagina .naam-en-sterren-container a:focus {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--saab-color);
+}
+
+.hoofdpagina .naam-en-sterren-container .row svg {
+    margin-right: 1px;
+}
+
+.hoofdpagina .naam-en-sterren-container .aant-sterren {
+    margin: -2px 0 0 5px;
+    font-size: 12.5pt;
+}
+
+.hoofdpagina .review-content {
+    font-weight: 400;
+}
+
+.hoofdpagina .review-image-container {
+    margin: 0 0 10px 0;
+}
+
+.hoofdpagina .review-image-container .review-images {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 90px;
+    margin: 0 10px 0 0;
+}
+
+/* 1.5.3.3 Datum beoordeeld */
+.hoofdpagina .reviews-container .reviews-sub-container .row div .review .datum {
+    color: var(--google-rev-date-color);
+    margin-top: 10px;
+    font-size: 10pt;
+}
+
+/* 1.5.4 Tekst onder de google-reviews over verschil algoritme */
+.hoofdpagina .reviews-container .reviews-sub-container .google-reviews-caption {
+    font-size: 12pt;
+    color: var(--google-rev-caption-bottom-color);
+    margin-top: 30px;
+}
+
+/* 1.5.4.1 De link 'meer informatie' */
+.hoofdpagina .reviews-container .reviews-sub-container .google-reviews-caption a {
+    color: var(--google-rev-caption-bottom-color);
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 200ms linear;
+}
+
+.hoofdpagina .reviews-container .reviews-sub-container .google-reviews-caption a:hover {
+    color: var(--text-color);
+}
+
+/* 1.6 Melding(modal) */
+.hoofdpagina .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 10%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, .6); /* Black w/ opacity */
+}
+
+.hoofdpagina .modal-content {
+    position: relative;
+    background-color: var(--white-color);
+    margin: auto;
+    padding: 0;
+    border: 3px solid var(--saab-color);
+    border-radius: 10px;
+    width: 50%;
+    min-width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: .4s;
+    animation-name: animatetop;
+    animation-duration: .4s
+}
+
+/* 1.6.1 Animaties */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.hoofdpagina .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.hoofdpagina .close:hover,
+.hoofdpagina .close:focus {
+    color: var(--white-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 1.6.2 Melding-top */
+.hoofdpagina .modal-header {
+    padding: 10px 16px;
+    background: var(--saab-color);
+    color: white;
+}
+
+.hoofdpagina .modal-header p {
+    font-size: 16pt;
+    margin: 0 0 5px 0;
+}
+
+.hoofdpagina .modal-header p::selection {
+    color: var(--saab-color);
+    background: var(--white-color);
+}
+
+.hoofdpagina .modal-header p::-moz-selection {
+    color: var(--saab-color);
+    background: var(--white-color);
+}
+
+/* 1.6.3 Content in melding(modal) */
+.hoofdpagina .modal-body {
+    padding: 5px 16px;
+}
+
+.hoofdpagina .modal-body p {
+    margin: 5px;
+}
+
+.hoofdpagina .modal-body td {
+    border: none;
+}
+
+.hoofdpagina .modal-body .table {
+    max-width: 350px;
+}
+
+/*************************
+2. Werkplaatspagina ******
+/*************************/
+
+/* 2.1 Inhoud (container) */
+.werkplaatsPagina .werkplaats-container {
+    width: 85%;
+    margin: 0 7.5%;
+}
+
+/* 2.2 Google streetview */
+.werkplaatsPagina .g-360graden-werkplaats {
+    margin-top: 100px;
+}
+
+/* 2.2.1 'Bekijk in fullscreen foto' */
+.werkplaatsPagina .g-360graden-werkplaats .werkplaats-opmerking {
+    height: 200px;
+    float: right;
+    margin-right: -30px;
+    user-select: none;
+}
+
+/*************************
+3. Occasionspagina *******
+/*************************/
+
+/* 3.1 Inhoud (container) */
+.occasionsPagina .occasionspagina-container {
+    width: 90%;
+    margin: 0 5%;
+}
+
+/* 3.2 Inhoud occasions */
+.occasionsPagina .occasionspagina-container .occasions-container {
+    margin-top: 50px;
+}
+
+/* 3.3 Elk occasion-container(bootstrap grids) */
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container {
+    margin-top: 60px;
+}
+
+.occasionsPagina .arrow2:hover,
+.occasionsPagina .arrow2:focus {
+    margin-top: 10px;
+}
+
+/* 3.4 Elk occasion */
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+/* 3.4.1 Occasion image container */
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .car-image-link .car-image-container {
+    height: 275px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .car-image-link .car-image-container .car-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    transition: transform 200ms ease;
+}
+
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .car-image-link .car-image-container .car-image:hover {
+    transform: scale(1.1);
+}
+
+/* 3.4.3 Occasion contents */
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .occasion-content {
+    padding: 20px 0 0 20px;
+}
+
+/* 3.4.3.1 Occasion titel */
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .occasion-content .occasion-auto-titel {
+    font-size: 20pt;
+}
+
+/* 3.4.3.2 Occasion informatie(html-tag: d1) */
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .occasion-content .occasion-informatie {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3.4.3.3 Occasion informatie container(html-tag: div) */
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .occasion-content .occasion-informatie .occasion-informatie-container {
+    display: flex;
+    font-size: 12.5pt;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .occasion-content .occasion-informatie .occasion-informatie-container dt {
+    width: 45%;
+    color: rgb(110, 110, 110);
+    font-weight: 400;
+    margin-right: 10%;
+    word-break: break-word;
+}
+
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .occasion-content .occasion-informatie .occasion-informatie-container dd {
+    font-weight: 500;
+    width: 45%;
+    word-break: break-word;
+}
+
+/* 3.4.4 Occasion 'meer informatie'-knop */
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .btn {
+    background: var(--saab-color);
+    width: 100%;
+    color: var(--white-color);
+    padding: 15px;
+    border-radius: 0;
+    font-size: 14pt;
+    margin-top: 20px;
+    transition: 100ms background linear;
+}
+
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .btn:hover,
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .btn:active,
+.occasionsPagina .occasionspagina-container .occasions-container .occasion-card-container .occasion-card .btn:focus {
+    background: var(--saab-color2);
+}
+
+/*************************
+4. Occasionpagina ********
+/*************************/
+
+/*  */
+.occasionPagina {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 4.1 Titel auto */
+.occasionPagina .titel {
+    margin: 50px 0 20px 0;
+    font-size: max(2.5vw, 25px);
+    text-align: center;
+}
+
+/* 4.3 Carousel */
+.occasionPagina .carousel {
+    margin: 10px 12.5% 0 12.5%;
+    width: 75%;
+    --animation-speed: .3s;
+    --animation-sort: ease;
+}
+
+.occasionPagina .carousel-photos {
+    user-select: none;
+}
+
+.carousel-inner .carousel-item {
+    transition: -webkit-transform var(--animation-speed) var(--animation-sort);
+    transition: transform var(--animation-speed) var(--animation-sort);
+    transition: transform var(--animation-speed) var(--animation-sort), -webkit-transform var(--animation-speed) var(--animation-sort);
+}
+
+.occasionPagina .carousel-indicators {
+    --gap: 1%;
+    display: inline-flex;
+    flex-flow: row wrap;
+    margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
+    width: calc(100% + var(--gap));
+    height: 30%;
+    bottom: -32%;
+}
+
+.occasionPagina .carousel-indicators li {
+    background-size: cover;
+    background-position: center center;
+    flex-basis: calc(20% - 1%);
+    height: 62%;
+    border: none;
+    margin: var(--gap) 0 0 var(--gap);
+    transition: opacity var(--animation-speed) var(--animation-sort);
+}
+
+.occasionPagina .carousel-control-prev,
+.occasionPagina .carousel-control-next {
+    background: var(--saab-color);
+    --navigation-arrow-height: 100%;
+    --navigation-arrow-width: 17%;
+    --navigation-arrow-margin: -17%;
+    width: var(--navigation-arrow-width);
+    height: var(--navigation-arrow-height);
+}
+
+.occasionPagina .carousel-control-prev {
+    left: var(--navigation-arrow-margin);
+}
+
+.occasionPagina .carousel-control-next {
+    right: var(--navigation-arrow-margin);
+}
+
+.occasionPagina .carousel-control-prev .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(245, 245, 245)' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.occasionPagina .carousel-control-next .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(245, 245, 245)' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+/* 4.4 Informatie en contact container */
+.occasionPagina .occasion-informatie-container {
+    margin: 0 5% 0 5%;
+    font-size: 13pt;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.occasionPagina .informatie-block-container {
+    padding: 0;
+    margin: 50px 0 0 0;
+}
+
+/*  */
+.occasionPagina .informatie-block {
+    margin: 0 30px;
+    padding: 20px 20px 10px 20px;
+    box-shadow: 0 0 10px 1px rgba(18, 49, 100, .1);
+    border-radius: 7px;
+}
+
+.occasionPagina .exception {
+    margin: 0 30px;
+    padding: 20px 20px 10px 20px;
+    box-shadow: none;
+}
+
+.occasionPagina .exception a p {
+    margin: 0 0 5px 0;
+    text-decoration: underline rgb(110, 110, 110);
+    display: inline-block;
+    color: rgb(110, 110, 110);
+    transition: text-decoration-color 150ms linear, color 150ms linear;
+}
+
+.occasionPagina .exception a p:hover,
+.occasionPagina .exception a p:focus {
+    color: #000;
+    text-decoration-color: #000;
+}
+
+/*  */
+.occasionPagina .informatie-block .informatie-titel {
+    color: rgb(60, 60, 60);
+    font-size: max(1.3vw, 22px);
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(18, 49, 100, .2);
+    margin-bottom: 10px;
+}
+
+/* 4.4.1 Elke rij in informatie */
+.occasionPagina .rij {
+    padding: 2px 0;
+    word-wrap: break-word;
+}
+
+/* 4.4.3 Hele linker rij */
+.occasionPagina .rij dt {
+    width: 45%;
+    font-weight: 400;
+    color: rgb(110, 110, 110);
+    margin-right: 10%;
+}
+
+/* 4.4.4 Hele rechter rij */
+.occasionPagina .rij dd {
+    width: 45%;
+    font-weight: 500;
+}
+
+/*************************
+5. Errorpagina ***********
+/*************************/
+
+/* 5.1 Inhoud(container) */
+.errorPagina .error-container {
+    margin: 150px 0 150px 0;
+    padding: 20px 0;
+}
+
+/* 5.2 Logo */
+.errorPagina .error-container .ssr-logo {
+    width: max(40%, 500px);
+    margin: 0 auto 50px auto;
+    display: block;
+    user-select: none;
+}
+
+/* 5.3 Titel */
+.errorPagina .error-container .error-title {
+    color: var(--saab-color);
+    font-size: max(2.5vw, 25px);
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
+
+/* 5.4 Bericht  */
+.errorPagina .error-container .error-message {
+    font-size: max(1vw, 18px);
+}
+
+/* 5.5 Advies */
+.errorPagina .error-container .error-advise {
+    margin-top: 50px;
+    margin-bottom: -10px;
+    font-size: max(1.2vw, 21px);
+}
+
+/* 5.6 Streep tussen: advies & buttons */
+.errorPagina .error-container hr {
+    width: 50%;
+    margin: 30px 25%;
+    background: var(--saab-color);
+    opacity: .4;
+}
+
+/* 5.7 Buttons row */
+.errorPagina .error-container .row {
+    margin: -20px 10% 0 10%;
+}
+
+/* 5.7.1 Button container */
+.errorPagina .error-container .row div .card {
+    background: var(--saab-color);
+    border: none;
+    border-radius: 30px;
+    width: 80%;
+    margin: 30px 10% 0 10%;
+}
+
+/* 5.7.2 Button */
+.errorPagina .error-container .row div .card a {
+    text-align: center;
+    text-decoration: none;
+    color: var(--white-color);
+    padding: 8px;
+    border-radius: 30px;
+    transition: background 200ms ease-in-out;
+    font-size: 14pt;
+}
+
+.errorPagina .error-container .row div .card a:hover,
+.errorPagina .error-container .row div .card a:focus,
+.errorPagina .error-container .row div .card a:active {
+    background: var(--saab-color2);
+}
+
+/*************************
+6. Footer ****************
+/*************************/
+footer {
+    color: var(--white-color);
+    margin-top: 150px;
+    background-color: var(--saab-color);
+}
+
+footer *::selection {
+    background: #fff;
+    color: var(--saab-color);
+}
+
+/* 6.1 Logo */
+footer .logo {
+    display: block;
+    margin: 10px auto;
+    width: 60%;
+    min-width: 250px;
+    user-select: none;
+}
+
+/* 6.2 Elke rij vd footer aan de rechterkant op desktop-modus */
+footer .col-12 {
+    margin-top: 20px;
+}
+
+/* 6.3 Lijn tussen: Titel en list */
+footer .border-bottom-footer-titles {
+    opacity: .4;
+    background: var(--white-color);
+    width: 50%;
+    margin: 5px 0 7px 0;
+}
+
+/* 6.4 iconen in 2e rij */
+footer svg {
+    min-width: 25px;
+    margin-right: 5px;
+}
+
+/* 6.5 Elke link in de list */
+footer .link {
+    margin-bottom: 2px;
+    color: var(--white-color);
+    text-decoration: underline var(--saab-color);
+    transition: margin-left 200ms ease-in-out, text-decoration-color 200ms linear;
+}
+
+footer .link:hover {
+    margin-left: 7px;
+    text-decoration-color: var(--white-color);
+}
+
+footer .list2 li {
+    margin-bottom: 3px;
+}
+
+/* 6.6 Copyright container onderaan de footer */
+footer .footer-copyright {
+    margin-top: 30px;
+    background-color: var(--footer-copyright-container-color);
+}
+
+footer .copyright-link {
+    color: var(--white-color);
+    text-decoration: underline var(--white-color);
+}
