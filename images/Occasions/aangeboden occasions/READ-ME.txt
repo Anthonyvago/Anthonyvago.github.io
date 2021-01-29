@@ -1,3 +1,2 @@
 - Er is een limiet aan het aantal foto's. Dit limiet is aan te passen.
 - Er wordt gebruik gemaakt van één bestandstype (png, jpg, jpeg, mov).
-- 0.<bestandstype> wordt niet meegeteld.

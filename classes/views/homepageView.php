@@ -1,62 +1,8 @@
 <?php
-$shortIntroductions = array(
-    array('Wie zijn wij?', 'De eigenaar van Saab Service Rhenen is Albert Vágo.', 'over-ons'),
-    array('Werkplaats', 'In de werkplaats verrichten wij allerlei werkzaamheden. Om deze te bekijken klikt u hieronder.', 'werkplaats'),
-    array('Occasions', 'Bent u geïnteresseerd in een Saab? Dan bent u op het juiste adres', 'occasions')
-);
+require_once "includes/homePageFunctions.php";
 
 $googleReviews = getGoogleReviews();
 $gemRating = calcAvarageRating($googleReviews);
-
-function calcAvarageRating($googleReviews)
-{
-    $countRating = 0;
-    $countReviews = count($googleReviews);
-    foreach ($googleReviews as $googleReview) {
-        $countRating += $googleReview['stars'];
-    }
-    return $countRating / $countReviews;
-}
-
-function getTimeDifference($date1) {
-    $date2 = date('Y/m/d'); //Pakt de datum van vandaag
-    $timeDifference = abs(strtotime($date2) - strtotime($date1)); /* Aantal sec verschil tussen vandaag en wnnr review is geplaatst */
-//  Berekent aantal jaren, maanden en dagen verschil uit:
-    $years = floor($timeDifference / (365 * 60 * 60 * 24));
-    $months = floor(($timeDifference - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
-    $days = floor(($timeDifference - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
-//  Afronden op maanden:
-    if ($days > 15) { /* Afronden op maanden; Als het meer dan een halve maand scheelt, gaat het aantal van maanden omhoog */
-        $months++;
-        if ($months > 12) { /* Als $months 13 of hoger is, reset ie naar 0 (= januari) en komt er een jaar bij */
-            $months = 0;
-            $years++;
-        }
-    }
-    return [$years, $months, $days];
-}
-
-function getStringToDisplay($timeDiffArr) {
-    $years = $timeDiffArr[0];
-    $months = $timeDiffArr[1];
-    $days = $timeDiffArr[2];
-//  Genereert de string die de gebruiker moet zien
-    $timeDiffString = '';
-    if ($years > 0) {
-        if ($months == 0) $timeDiffString = 'Ongeveer '.$years.' jaar geleden';
-        if ($months == 1) $timeDiffString = 'Ongeveer '.$years.' en '.$months.' maand geleden';
-        if ($months > 1) $timeDiffString = 'Ongeveer '.$years.' en '.$months.' maanden geleden';
-    } else {
-        if ($months == 0) {
-            if ($days == 0) $timeDiffString = 'Vandaag';
-            if ($days == 1) $timeDiffString = 'Gisteren';
-            if ($days > 1) $timeDiffString = $days.' dagen geleden';
-        }
-        if ($months == 1) $timeDiffString = $months.' maand geleden';
-        if ($months > 1) $timeDiffString = 'Ongeveer '.$months.' maanden geleden';
-    }
-    return $timeDiffString;
-}
 
 //echo '<pre>'; print_r($arr); echo '</pre>';
 
@@ -81,15 +27,15 @@ function getStringToDisplay($timeDiffArr) {
     </div>
 
     <div class="info-container row" id="Introductie">
-        <?php for ($i = 0; $i < count($shortIntroductions); $i++) { ?>
+        <?php foreach ($shortIntroductions as $shortIntroduction) { ?>
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="card text-center">
                     <div class="card-body">
-                        <h2 class="card-titel"><?= $shortIntroductions[$i][0] ?></h2>
+                        <h2 class="card-titel"><?= $shortIntroduction[0] ?></h2>
                         <hr>
-                        <p class="card-text"><?= $shortIntroductions[$i][1] ?></p>
+                        <p class="card-text"><?= $shortIntroduction[1] ?></p>
                         <div class="button-container">
-                            <a href="<?= $shortIntroductions[$i][2] ?>.php" class="btn">Lees meer...</a>
+                            <a href="<?= $shortIntroduction[2] ?>.php" class="btn">Lees meer...</a>
                         </div>
                     </div>
                 </div>
@@ -158,7 +104,7 @@ function getStringToDisplay($timeDiffArr) {
                                                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                                             </svg>
                                         <?php }
-                                        echo '<a href="https://www.google.com/maps/contrib/'.$googleReview['accountId'].'/place/ChIJVVUZlKtWxkcRssE-rf0sV84" class="aant-sterren" target="_blank">('.$googleReview['stars'].')</a>'; ?>
+                                        echo '<a href="https://www.google.com/maps/contrib/' . $googleReview['accountId'] . '/place/ChIJVVUZlKtWxkcRssE-rf0sV84" class="aant-sterren" target="_blank">(' . $googleReview['stars'] . ')</a>'; ?>
                                     </div>
                                 </div>
                             </div>
@@ -193,9 +139,10 @@ function getStringToDisplay($timeDiffArr) {
                         <span class="close">&times;</span>
                     </div>
                     <div class="modal-body">
-                        <p>De tijdsaanduidingen kunnen verschillen t.o.v. Google haar tijdsaanduidingen. Dit komt
+                        <p>De tijdsaanduidingen die u op deze pagina ziet, kunnen verschillen met die van Google haar
+                            tijdsaanduidingen. Dit komt
                             doordat wij gebruik maken van een algoritme dat afrondt op maanden.</p>
-                        <p>Google maakt gebruik van een algoritme die pas een maand toevoegt als de maand is
+                        <p>Google maakt gebruik van een algoritme dat pas een maand toevoegt als de maand is
                             afgelopen.</p>
                         <p style="margin-top: 20px">Voorbeeld: Een review is 3 maanden en 28 dagen geleden
                             geüpload.</p>

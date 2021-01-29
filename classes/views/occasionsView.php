@@ -17,13 +17,15 @@ $categoriesToShow = ['Merk', 'Model', 'Bouwjaar', 'Kilometerstand', 'Transmissie
 
     <div class="occasionspagina-container" id="occasionspagina-container">
         <div class="occasions-container row">
-            <?php $i = 0;
+            <?php
+            $autoNr = 1;
             foreach ($cars as $key => $car) { ?>
                 <div class="occasion-card-container col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="occasion-card">
                         <a href="occasions.php?id=<?= $key ?>" class="car-image-link">
                             <div class="car-image-container">
-                                <div class="car-image" style='background-image: url("./images/Occasions/aangeboden occasions/<?= $i ?>/thumbnail.<?= $fileFormat ?>")'></div>
+                                <div class="car-image"
+                                     style='background-image: url("./images/Occasions/aangeboden occasions/Auto <?= $autoNr ?>/thumbnail.<?= $fileFormat ?>")'></div>
                             </div>
                         </a>
                         <div class="occasion-content">
@@ -32,11 +34,11 @@ $categoriesToShow = ['Merk', 'Model', 'Bouwjaar', 'Kilometerstand', 'Transmissie
                                 <?php
                                 foreach ($car as $category => $categoryName) {
                                     foreach ($categoryName as $subCategory => $categoryAnswer)
-                                        if(in_array($subCategory, $categoriesToShow)) : ?>
-                                        <div class="occasion-informatie-container">
-                                            <dt><?= $subCategory ?></dt>
-                                            <dd><?= $categoryAnswer ?></dd>
-                                        </div>
+                                        if (in_array($subCategory, $categoriesToShow)) : ?>
+                                            <div class="occasion-informatie-container">
+                                                <dt><?= $subCategory ?></dt>
+                                                <dd><?= $categoryAnswer ?></dd>
+                                            </div>
                                         <?php endif; ?>
                                 <?php } ?>
                             </d1>
@@ -44,7 +46,8 @@ $categoriesToShow = ['Merk', 'Model', 'Bouwjaar', 'Kilometerstand', 'Transmissie
                         <a href="occasions.php?id=<?= $key ?>" class="btn text-center">Meer informatie</a>
                     </div>
                 </div>
-                <?php $i++;
+                <?php
+                $autoNr++;
             } ?>
         </div>
     </div>

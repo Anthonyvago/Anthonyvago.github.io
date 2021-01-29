@@ -62,7 +62,7 @@ $homepageIconActive = '<svg width="22px" viewBox="0 0 16 16" class="bi bi-house-
     <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav mr-auto mt-2 mt-lg-0">
             <?php foreach ($allPagesArray as $page) { ?>
-                <a class="nav-item nav-link <?php if ($pageActive == $page['activeName']) echo 'active'; else echo 'non-active'; ?>"
+                <a class="nav-item nav-link <?php if ($title == $page['tekst']) echo 'active'; else echo 'non-active'; ?>"
                    href="<?= $page['document'] ?>.php">
                     <?php
                     if ($page['tekst'] == $allPagesArray['hoofdpagina']['tekst']) { /* Als de hoofdpagina aan de beurt is om weergegeven te worden: */

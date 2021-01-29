@@ -5,28 +5,23 @@ function getPages()
     $navbarLinks = [
         'hoofdpagina' => [
             'tekst' => 'Hoofdpagina',
-            'document' => 'index',
-            'activeName' => 'hoofdpagina'
+            'document' => 'index'
         ],
         'werkplaatsPagina' => [
             'tekst' => 'Werkplaats',
-            'document' => 'werkplaats',
-            'activeName' => 'werkplaats'
+            'document' => 'werkplaats'
         ],
         'occasionsPagina' => [
             'tekst' => 'Occasions',
-            'document' => 'occasions',
-            'activeName' => 'occasions'
+            'document' => 'occasions'
         ],
         'overOnsPagina' => [
             'tekst' => 'Over ons',
-            'document' => 'over-ons',
-            'activeName' => 'over-ons'
+            'document' => 'over-ons'
         ],
         'contactPagina' => [
             'tekst' => 'Contact',
-            'document' => 'contact',
-            'activeName' => 'contact'
+            'document' => 'contact'
         ]
     ];
     return $navbarLinks;
