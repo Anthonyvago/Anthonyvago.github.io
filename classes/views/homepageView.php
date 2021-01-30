@@ -54,7 +54,7 @@ $gemRating = calcAvarageRating($googleReviews);
                     <path fill-rule="evenodd"
                           d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
                 </svg>
-                Beoordeling geven
+                Review achterlaten
             </a>
             <div class="gemiddelde-rating-container col-12">
                 <div class="top">
@@ -90,12 +90,12 @@ $gemRating = calcAvarageRating($googleReviews);
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="review">
                             <div class="row review-top">
-                                <a href="https://www.google.com/maps/contrib/<?= $googleReview['accountId'] ?>/place/ChIJVVUZlKtWxkcRssE-rf0sV84"
+                                <a href="https://www.google.com/maps/contrib/<?= $googleReview['accountId'] ?>/reviews"
                                    target="_blank" class="review-profielfotos"
                                    style="background-color: rgb(220, 220, 220); background-image: url('<?= $googleReview['pfUrl'] ?>');">
                                 </a>
                                 <div class="naam-en-sterren-container">
-                                    <a href="https://www.google.com/maps/contrib/<?= $googleReview['accountId'] ?>/place/ChIJVVUZlKtWxkcRssE-rf0sV84"
+                                    <a href="https://www.google.com/maps/contrib/<?= $googleReview['accountId'] ?>/reviews"
                                        target="_blank"><?= $googleReview['name'] ?></a>
                                     <div class="row">
                                         <?php for ($i = 0; $i < $googleReview['stars']; $i++) { ?>
@@ -104,7 +104,7 @@ $gemRating = calcAvarageRating($googleReviews);
                                                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                                             </svg>
                                         <?php }
-                                        echo '<a href="https://www.google.com/maps/contrib/' . $googleReview['accountId'] . '/place/ChIJVVUZlKtWxkcRssE-rf0sV84" class="aant-sterren" target="_blank">(' . $googleReview['stars'] . ')</a>'; ?>
+                                        echo '<a href="https://www.google.com/maps/contrib/' . $googleReview['accountId'] . '/reviews" class="aant-sterren" target="_blank">(' . $googleReview['stars'] . ')</a>'; ?>
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@ $gemRating = calcAvarageRating($googleReviews);
                     <path fill-rule="evenodd"
                           d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
                 </svg>
-                Beoordeling geven
+                Review achterlaten
             </a>
         </div>
     </div>

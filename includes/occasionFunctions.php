@@ -1,5 +1,6 @@
 <?php
 $car = getCarInfo()[$carID];
+
 // ZELF INSTELLEN
 $maxFileNr = 100;   /* Maximale bestandsnaam; Er wordt niet gekeken of er een afbeelding bestaat met een hoger cijfer als bestandsnaam dan dit. */
 $maxPhotoCount = 100;    /* Maximaal aantal foto's */
