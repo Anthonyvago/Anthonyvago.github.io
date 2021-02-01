@@ -1,11 +1,8 @@
 <?php
-require_once "includes/homePageFunctions.php";
-
-$googleReviews = getGoogleReviews();
+require_once 'includes/googleReviews.php';
+require_once 'includes/homepageFunctions.php';
 $gemRating = calcAvarageRating($googleReviews);
-
 //echo '<pre>'; print_r($arr); echo '</pre>';
-
 ?>
 
 <main class="hoofdpagina">

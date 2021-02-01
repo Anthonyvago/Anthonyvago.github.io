@@ -1042,8 +1042,11 @@ footer .link {
 }
 
 footer .link:hover {
-    margin-left: 7px;
     text-decoration-color: var(--white-color);
+}
+
+footer .list1 a:hover {
+    margin-left: 7px;
 }
 
 footer .list2 li {
