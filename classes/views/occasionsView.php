@@ -1,6 +1,4 @@
 <?php
-$cars = getCarInfo();
-$notShowingCategory = 'ID';
 $fileFormat = 'png';
 $categoriesToShow = ['Merk', 'Model', 'Bouwjaar', 'Kilometerstand', 'Transmissie', 'Brandstof'];
 ?>
@@ -19,7 +17,7 @@ $categoriesToShow = ['Merk', 'Model', 'Bouwjaar', 'Kilometerstand', 'Transmissie
         <div class="occasions-container row">
             <?php
             $autoNr = 1;
-            foreach ($cars as $key => $car) { ?>
+            foreach ($allCarsInfo as $key => $car) { ?>
                 <div class="occasion-card-container col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="occasion-card">
                         <a href="occasions.php?id=<?= $key ?>" class="car-image-link">

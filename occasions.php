@@ -11,12 +11,11 @@ if (count($_GET) == 0) { /* Als er niks is meegegeven: */
 if (count($_GET) > 0) { /* Als er iets is meegegeven: */
     if (isset($_GET['id'])) { /* Als ID is gegeven: */
         require_once 'includes/carInformation.php';
-        $cars = getCarInfo();
         $minID = 0;
-        $maxID = count($cars) - 1;
+        $maxID = count($allCarsInfo) - 1;
 
         if ($_GET['id'] >= $minID && $_GET['id'] <= $maxID) { /* Als het gegeven ID overeen komt: */
-            $title = $cars[$_GET['id']]['Gegevens']['Merk'] . " " . $cars[$_GET['id']]['Gegevens']['Model'];
+            $title = $allCarsInfo[$_GET['id']]['Gegevens']['Merk'] . " " . $allCarsInfo[$_GET['id']]['Gegevens']['Model'];
             require_once 'includes/functions.php';
             require_once 'includes/header.php';
             require_once 'classes/views/occasion.php';

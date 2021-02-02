@@ -2,6 +2,7 @@
 $carID = $_GET['id'];
 require_once "includes/occasionFunctions.php";
 $photoNrs = initCarPhotos($maxFileNr, $maxPhotoCount, $carID, $fileFormat);
+$folderName = 'Auto ' . ($carID + 1);
 ?>
 
 <main class="occasionPagina">
@@ -11,8 +12,8 @@ $photoNrs = initCarPhotos($maxFileNr, $maxPhotoCount, $carID, $fileFormat);
             <?php $autoNr = 0;
             foreach ($photoNrs as $photo) { ?>
                 <li data-target="#carouselExampleIndicators"
-                    data-slide-to="<?= $autoNr ?>" <?php if ($autoNr == 0) { echo 'class="active"'; } ?>
-                    style="background-color: var(--white-color); background-image: url('./images/Occasions/aangeboden occasions/<?= $carID + 1 ?>/<?= $photo ?>.<?= $fileFormat ?>')">
+                    data-slide-to="<?= $autoNr ?>" <?php if ($autoNr == 0) echo 'class="active"'; ?>
+                    style="background-color: var(--white-color); background-image: url('./images/Occasions/aangeboden occasions/<?= $folderName ?>/<?= $photo ?>.<?= $fileFormat ?>')">
                 </li>
                 <?php
                 $autoNr++;
@@ -22,10 +23,9 @@ $photoNrs = initCarPhotos($maxFileNr, $maxPhotoCount, $carID, $fileFormat);
         <div class="carousel-inner">
             <?php $firstItem = true;
             foreach ($photoNrs as $photo) { ?>
-                <div class="carousel-item <?php if ($firstItem): echo 'active';
-                    $firstItem = false; endif; ?>">
+                <div class="carousel-item <?php if ($firstItem): echo 'active'; $firstItem = false; endif; ?>">
                     <img class="d-block w-100 carousel-photos"
-                         src="./images/Occasions/aangeboden occasions/<?= $carID + 1 ?>/<?= $photo ?>.<?= $fileFormat ?>"
+                         src="./images/Occasions/aangeboden occasions/<?= $folderName ?>/<?= $photo ?>.<?= $fileFormat ?>"
                          alt="Foto 1">
                 </div>
             <?php } ?>

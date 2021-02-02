@@ -79,8 +79,8 @@
     --white-color: rgb(245, 245, 245);
     --nav-unselected: rgba(255, 255, 255, .75);
     --nav-unselected-hover: rgb(150, 150, 150);
-    --google-rev-date-color: rgb(150, 150, 150);
-    --google-rev-caption-bottom-color: rgb(130, 130, 130);
+    --google-review-date-color: rgb(120, 120, 120);
+    --google-review-caption-bottom-color: rgb(130, 130, 130);
     --footer-copyright-container-color: rgb(30, 64, 117);
 }
 
@@ -501,21 +501,21 @@ main .front-text-container p {
 
 /* 1.5.3.3 Datum beoordeeld */
 .hoofdpagina .reviews-container .reviews-sub-container .row div .review .datum {
-    color: var(--google-rev-date-color);
-    margin-top: 10px;
-    font-size: 10pt;
+    color: var(--google-review-date-color);
+    margin: 0 0 3px 0;
+    font-size: 10.5pt;
 }
 
 /* 1.5.4 Tekst onder de google-reviews over verschil algoritme */
 .hoofdpagina .reviews-container .reviews-sub-container .google-reviews-caption {
     font-size: 12pt;
-    color: var(--google-rev-caption-bottom-color);
+    color: var(--google-review-caption-bottom-color);
     margin-top: 30px;
 }
 
 /* 1.5.4.1 De link 'meer informatie' */
 .hoofdpagina .reviews-container .reviews-sub-container .google-reviews-caption a {
-    color: var(--google-rev-caption-bottom-color);
+    color: var(--google-review-caption-bottom-color);
     cursor: pointer;
     text-decoration: underline;
     transition: color 200ms linear;
